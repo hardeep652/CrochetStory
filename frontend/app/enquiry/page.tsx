@@ -193,7 +193,7 @@ const Enquiry = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-white via-pink-50 to-rose-100 overflow-x-hidden relative">
+    <div className="min-h-screen bg-gradient-to-br from-white via-pink-50 to-rose-100 overflow-x-hidden relative text-black">
       <div
         className="absolute inset-0 opacity-10 bg-repeat bg-[url('/crochet-pattern.png')] bg-cover bg-fixed z-0"
         style={{ backgroundSize: "500px 500px" }}
