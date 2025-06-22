@@ -13,7 +13,7 @@ import com.example.backend_springboot.service.inquiryservice;
 
 @RestController
 @RequestMapping("/api")
-@CrossOrigin(origins = "https://crochet-story.vercel.app", allowedHeaders = "*", methods = {RequestMethod.POST, RequestMethod.GET}) // Added CORS
+@CrossOrigin(origins = "https://www.crochetstory.in", allowedHeaders = "*", methods = {RequestMethod.POST, RequestMethod.GET}) // Added CORS
 public class inquirycontroller {
 
    @Autowired

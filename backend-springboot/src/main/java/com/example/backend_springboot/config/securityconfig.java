@@ -49,7 +49,7 @@ public class securityconfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration config = new CorsConfiguration();
-        config.setAllowedOrigins(List.of("https://crochet-story.vercel.app")); // Frontend origin
+        config.setAllowedOrigins(List.of("https://www.crochetstory.in")); // Frontend origin
         config.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         config.setAllowedHeaders(List.of("*"));
         config.setAllowCredentials(true); // Important for cookies/session/token
