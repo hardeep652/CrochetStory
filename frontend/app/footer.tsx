@@ -5,7 +5,6 @@ import Link from "next/link";
 import { Heart, Phone, Mail, MapPin } from "lucide-react";
 import { motion } from "framer-motion";
 
-// Animation variants for Framer Motion
 const itemVariants = {
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
@@ -22,13 +21,28 @@ export default function Footer() {
               <span className="text-xl font-bold group-hover:text-pink-100 transition-colors duration-300">CraftedWithLove</span>
             </div>
             <p className="text-gray-400">
-              Creating beautiful handmade crochet pieces with love and expertise.
+              Handcrafted crochet treasures made with love and care in India.
             </p>
           </motion.div>
 
           {[
-            { title: "Quick Links", links: [{ name: "Home", href: "/" }, { name: "Products", href: "/products" }, { name: "About", href: "/about" }, { name: "Contact", href: "/contact" }] },
-            { title: "Categories", links: [{ name: "Baby Items", href: "/categories/baby" }, { name: "Home Decor", href: "/categories/decor" }, { name: "Accessories", href: "/categories/accessories" }, { name: "Custom Orders", href: "/categories/custom" }] },
+            {
+              title: "Quick Links",
+              links: [
+                { name: "Home", href: "/" },
+                { name: "Products", href: "/products" },
+                { name: "Contact", href: "/contact" },
+              ],
+            },
+            {
+              title: "Categories",
+              links: [
+                { name: "Gift Articles", href: "/products/gift-articles" },
+                { name: "Hair Accessories", href: "/products/hair-accessories" },
+                { name: "Home Decor", href: "/products/home-decor" },
+                { name: "Others", href: "/products/others" },
+              ],
+            },
           ].map((section, index) => (
             <motion.div
               key={index}
@@ -41,7 +55,11 @@ export default function Footer() {
               <h3 className="font-semibold text-pink-200">{section.title}</h3>
               <div className="space-y-2">
                 {section.links.map((link, linkIndex) => (
-                  <Link key={linkIndex} href={link.href} className="block text-gray-400 hover:text-white transition-all duration-300 hover:translate-x-1 hover:text-pink-200">
+                  <Link
+                    key={linkIndex}
+                    href={link.href}
+                    className="block text-gray-400 hover:text-white transition-all duration-300 hover:translate-x-1 hover:text-pink-200"
+                  >
                     {link.name}
                   </Link>
                 ))}
@@ -59,9 +77,9 @@ export default function Footer() {
             <h3 className="font-semibold text-pink-200">Contact Info</h3>
             <div className="space-y-3">
               {[
-                { icon: Phone, text: "+1 (555) 123-4567" },
-                { icon: Mail, text: "hello@craftedwithlove.com" },
-                { icon: MapPin, text: "Your City, State" },
+                { icon: Phone, text: "+91 72659 24325" },
+                { icon: Mail, text: "crochetstory@gmail.com" },
+                { icon: MapPin, text: "Ahmedabad, Gujarat, India" },
               ].map((contact, index) => (
                 <motion.div
                   key={index}
@@ -69,7 +87,9 @@ export default function Footer() {
                   whileHover={{ scale: 1.05 }}
                 >
                   <contact.icon className="h-4 w-4 text-pink-500 group-hover:text-pink-400 transition-colors duration-300" />
-                  <span className="text-gray-400 group-hover:text-white transition-colors duration-300">{contact.text}</span>
+                  <span className="text-gray-400 group-hover:text-white transition-colors duration-300">
+                    {contact.text}
+                  </span>
                 </motion.div>
               ))}
             </div>
@@ -84,7 +104,7 @@ export default function Footer() {
           transition={{ delay: 0.8 }}
         >
           <p className="text-gray-400">
-            © 2025 CraftedWithLove. Made with ❤️ for handmade creations.
+            © 2025 CraftedWithLove. Made with ❤️ for handmade creations. All prices in ₹.
           </p>
         </motion.div>
       </div>

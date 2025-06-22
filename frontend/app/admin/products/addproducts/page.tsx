@@ -28,6 +28,7 @@ const AddProduct = () => {
     { display: "Hair Accessories", value: "Hair Accessories" },
   ];
 
+  const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL ;
   const containerVariants = {
     hidden: { opacity: 0, scale: 0.8 },
     visible: {
@@ -136,7 +137,7 @@ const AddProduct = () => {
       const authHeader = "Basic " + btoa("hardeep:shiv");
 
       const response = await fetch(
-        "http://localhost:8080/api/products/admin/addproduct",
+        `${BACKEND_URL}/api/products/admin/addproduct`,
         {
           method: "POST",
           body: data,

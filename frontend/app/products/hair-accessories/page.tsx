@@ -23,7 +23,6 @@ interface ArrowProps {
   onClick?: () => void;
 }
 
-// Custom Arrow Components
 const CustomPrevArrow: React.FC<ArrowProps> = ({ onClick }) => {
   return (
     <div
@@ -61,7 +60,7 @@ const HairAccessories: React.FC = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const url = "http://localhost:8080/api/products/getproducts/hair-accessories";
+        const url = `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/products/getproducts/hair-accessories`;
         const response = await fetch(url);
         if (!response.ok) {
           throw new Error(`Failed to fetch: ${response.statusText}`);
@@ -263,6 +262,9 @@ const HairAccessories: React.FC = () => {
                         </h3>
                         <p className="text-gray-600 text-base line-clamp-2 font-medium leading-relaxed px-2">
                           {product.description || "No description available"}
+                        </p>
+                        <p className="text-pink-600 font-medium">
+                          ₹{product.price ? product.price.toFixed(2) : "0.00"}
                         </p>
                       </div>
                       <div className="flex justify-center pt-2">
