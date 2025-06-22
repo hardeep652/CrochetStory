@@ -23,11 +23,20 @@ const FilteredSlider: React.FC<FilteredSliderProps> = ({ children, ...props }) =
 export default function CrochetHomepage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrollY, setScrollY] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+
+    const handleResize = () => setIsMobile(window.innerWidth < 640);
+    handleResize();
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleResize);
+    };
   }, []);
 
   const navVariants = {
@@ -51,17 +60,45 @@ export default function CrochetHomepage() {
     }),
   };
 
-  const carouselSettings = {
+  const carouselSettingsMobile = {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 3, // Show 3 slides to create the "behind each other" effect
+    slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 1500,
+    autoplaySpeed: 3000,
     arrows: true,
     centerMode: true,
-    centerPadding: '0px',
+    centerPadding: '20px',
+    focusOnSelect: true,
+    prevArrow: (
+      <div className="absolute left-4 top-1/2 transform -translate-y-1/2 z-10 w-12 h-12 bg-pink-500/80 hover:bg-pink-500 rounded-full flex items-center justify-center cursor-pointer transition-all duration-300 hover:scale-110 hover:shadow-lg backdrop-blur-sm border-2 border-white/30">
+        <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+          <path fillRule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clipRule="evenodd" />
+        </svg>
+      </div>
+    ),
+    nextArrow: (
+      <div className="absolute right-4 top-1/2 transform -translate-y-1/2 z-10 w-12 h-12 bg-pink-500/80 hover:bg-pink-500 rounded-full flex items-center justify-center cursor-pointer transition-all duration-300 hover:scale-110 hover:shadow-lg backdrop-blur-sm border-2 border-white/30">
+        <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+          <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
+        </svg>
+      </div>
+    ),
+  };
+
+  const carouselSettingsDesktop = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    arrows: true,
+    centerMode: true,
+    centerPadding: '10px',
     focusOnSelect: true,
     prevArrow: (
       <div className="absolute left-4 top-1/2 transform -translate-y-1/2 z-10 w-12 h-12 bg-pink-500/80 hover:bg-pink-500 rounded-full flex items-center justify-center cursor-pointer transition-all duration-300 hover:scale-110 hover:shadow-lg backdrop-blur-sm border-2 border-white/30">
@@ -126,30 +163,6 @@ export default function CrochetHomepage() {
               </motion.div>
             </div>
 
-            <div className="hidden md:flex items-center space-x-3">
-              <Link href="/login">
-                <motion.div
-                  className="relative text-pink-600 hover:text-pink-700 font-medium transition-all duration-300 px-4 py-2 rounded-full group overflow-hidden cursor-pointer"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <span className="relative z-10">Login</span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-pink-100/50 to-rose-100/50 rounded-full scale-0 group-hover:scale-100 transition-transform duration-300"></div>
-                </motion.div>
-              </Link>
-              <Link href="/register">
-                <motion.div
-                  className="relative bg-gradient-to-r from-pink-500 to-rose-500 text-white px-6 py-2 rounded-full font-medium transition-all duration-300 font-semibold hover:scale-105 group overflow-hidden cursor-pointer"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <span className="relative z-10">Register</span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-pink-600 to-rose-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  <div className="absolute inset-0 bg-white/20 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                </motion.div>
-              </Link>
-            </div>
-
             <div className="md:hidden">
               <motion.button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -176,26 +189,6 @@ export default function CrochetHomepage() {
                 <Link href="/" className="block px-4 py-3 text-gray-700 hover:text-pink-600 font-medium rounded-xl hover:bg-pink-50/80 backdrop-blur-sm transition-all duration-300">Home</Link>
                 <Link href="/products" className="block px-4 py-3 text-gray-700 hover:text-pink-600 font-medium rounded-xl hover:bg-pink-50/80 backdrop-blur-sm transition-all duration-300">Products</Link>
                 <Link href="/contact" className="block px-4 py-3 text-gray-700 hover:text-pink-600 font-medium rounded-xl hover:bg-pink-50/80 backdrop-blur-sm transition-all duration-300">Contact</Link>
-                <div className="px-4 py-2 space-y-2">
-                  <Link href="/login">
-                    <motion.div
-                      className="block w-full text-left text-pink-600 hover:text-pink-700 font-medium px-4 py-3 rounded-xl hover:bg-pink-50/80 backdrop-blur-sm transition-all duration-300 cursor-pointer"
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      Login
-                    </motion.div>
-                  </Link>
-                  <Link href="/register">
-                    <motion.div
-                      className="block w-full bg-gradient-to-r from-pink-500 to-rose-500 text-white px-4 py-3 rounded-xl hover:from-pink-600 hover:to-rose-600 transition-all duration-300 transform hover:scale-105 cursor-pointer"
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      Register
-                    </motion.div>
-                  </Link>
-                </div>
               </div>
             </motion.div>
           )}
@@ -272,22 +265,22 @@ export default function CrochetHomepage() {
             className="flex justify-center"
           >
             <div className="carousel-container">
-              <FilteredSlider {...carouselSettings}>
+              <FilteredSlider {...(isMobile ? carouselSettingsMobile : carouselSettingsDesktop)}>
                 {crochetProducts.map((product, index) => (
                   <motion.div
                     key={index}
                     className="relative slide-item"
-                    initial={{ scale: 0.8, opacity: 0.5 }}
-                    animate={{ scale: 1, opacity: 1 }}
+                    initial={{ opacity: 0.5 }}
+                    animate={{ opacity: 1 }}
                     transition={{ duration: 0.5 }}
                   >
-                    <div className="relative w-[500px] h-[500px] bg-gradient-to-br from-pink-100/80 to-rose-100/80 backdrop-blur-sm rounded-3xl overflow-hidden border border-white/30 shadow-2xl flex items-center justify-center">
+                    <div className="relative w-[300px] h-[300px] sm:w-[500px] sm:h-[500px] bg-gradient-to-br from-pink-100/80 to-rose-100/80 backdrop-blur-sm rounded-3xl overflow-hidden border border-white/30 shadow-2xl flex items-center justify-center">
                       <Image
                         src={product.image}
                         alt="Crochet Product"
-                        width={500}
-                        height={500}
-                        className="w-[500px] h-[500px] object-cover"
+                        width={300}
+                        height={300}
+                        className="w-[300px] h-[300px] sm:w-[500px] sm:h-[500px] object-cover"
                         onError={(e) => { e.currentTarget.src = "/placeholder-crochet.jpg"; }}
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
@@ -318,7 +311,8 @@ export default function CrochetHomepage() {
           .carousel-container {
             position: relative;
             width: 100%;
-            height: 600px;
+            height: 400px;
+            sm:height: 600px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -326,42 +320,54 @@ export default function CrochetHomepage() {
           }
           .slick-slider {
             width: 100%;
-            height: 600px;
+            height: 400px;
+            sm:height: 600px;
           }
           .slick-list {
             overflow: visible !important;
-            height: 600px !important;
+            height: 400px !important;
+            sm:height: 600px !important;
           }
           .slick-track {
             display: flex !important;
             align-items: center !important;
-            height: 600px !important;
+            height: 400px !important;
+            sm:height: 600px !important;
           }
           .slick-slide {
             transition: all 0.5s ease !important;
             opacity: 0.5 !important;
-            transform: scale(0.8) !important;
             z-index: 1 !important;
-            margin: 0 20px !important;
+            margin: 0 15px !important;
+            sm:margin: 0 10px !important;
           }
           .slick-slide img {
-            width: 500px !important;
-            height: 500px !important;
+            width: 300px !important;
+            height: 300px !important;
+            sm:width: 500px !important;
+            sm:height: 500px !important;
             object-fit: cover !important;
+          }
+          .slick-slide > div {
+            display: flex !important;
+            justify-content: center !important;
           }
           .slick-slide.slick-center {
             opacity: 1 !important;
-            transform: scale(1.5) !important; /* Expand to "cover the screen" */
             z-index: 10 !important;
+            sm:transform: scale(1.5) !important;
           }
           .slick-slide:not(.slick-center) {
-            transform: scale(0.8) translateX(0) !important; /* Slightly behind effect */
+            transform: translateX(0) !important;
+            sm:transform: scale(0.8) !important;
           }
           .slick-slide.slick-center ~ .slick-slide {
-            transform: scale(0.8) translateX(50px) !important; /* Offset to the right */
+            transform: translateX(30px) !important;
+            sm:transform: scale(0.8) translateX(30px) !important;
           }
           .slick-slide:not(.slick-center):not(.slick-center ~ .slick-slide) {
-            transform: scale(0.8) translateX(-50px) !important; /* Offset to the left */
+            transform: translateX(-30px) !important;
+            sm:transform: scale(0.8) translateX(-30px) !important;
           }
           .slick-dots {
             bottom: -40px !important;
@@ -490,8 +496,17 @@ export default function CrochetHomepage() {
             </motion.div>
 
             {[
-              { title: "Quick Links", links: [{ name: "Home", href: "/" }, { name: "Products", href: "/products" }, { name: "About", href: "/about" }, { name: "Contact", href: "/contact" }] },
-              { title: "Categories", links: [{ name: "Baby Items", href: "/categories/baby" }, { name: "Home Decor", href: "/categories/decor" }, { name: "Accessories", href: "/categories/accessories" }, { name: "Custom Orders", href: "/categories/custom" }] },
+              { title: "Quick Links", links: [
+                { name: "Home", href: "/" },
+                { name: "Products", href: "/products" },
+                { name: "Contact", href: "/contact" }
+              ] },
+              { title: "Categories", links: [
+                { name: "Gift Articles", href: "/products/gift-articles" },
+                { name: "Home Decor", href: "/products/home-decor" },
+                { name: "Accessories", href: "/products/hair-accessories" },
+                { name: "Others", href: "/products/others" }
+              ] },
             ].map((section, index) => (
               <motion.div
                 key={index}
