@@ -22,7 +22,7 @@ import com.example.backend_springboot.service.productservice;
 
 @RestController
 @RequestMapping("/api/products")
-@CrossOrigin(origins = "https://crochet-story-hiqp-pn2kl8srx-hardeep652s-projects.vercel.app", allowedHeaders = "*", methods = {RequestMethod.POST, RequestMethod.GET}) // Added CORS
+@CrossOrigin(origins = "https://crochet-story.vercel.app", allowedHeaders = "*", methods = {RequestMethod.POST, RequestMethod.GET}) // Added CORS
 public class productcontroller {
 
     @Autowired
