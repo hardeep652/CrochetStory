@@ -268,7 +268,7 @@ const Enquiry = () => {
                     name="category"
                     value={formData.category}
                     onChange={handleInputChange}
-                    className="mt-1 w-full px-4 py-3 rounded-lg bg-gray-100/80 border border-pink-200/50 text-gray-600 cursor-not-allowed"
+                    className="mt-1 w-full px-4 py-3 rounded-lg bg-black border border-pink-200/50 text-gray-600 cursor-not-allowed"
                     disabled
                   >
                     <option value="">Select Category</option>
@@ -285,7 +285,7 @@ const Enquiry = () => {
                     type="text"
                     name="product_name"
                     value={formData.product_name}
-                    className="mt-1 w-full px-4 py-3 rounded-lg bg-gray-100/80 border border-pink-200/50 text-gray-600 cursor-not-allowed"
+                    className="mt-1 w-full px-4 py-3 rounded-lg bg-black border border-pink-200/50 text-gray-600 cursor-not-allowed"
                     readOnly
                   />
                 </div>
@@ -295,7 +295,7 @@ const Enquiry = () => {
                     type="text"
                     name="price"
                     value={formData.price}
-                    className="mt-1 w-full px-4 py-3 rounded-lg bg-gray-100/80 border border-pink-200/50 text-gray-600 cursor-not-allowed"
+                    className="mt-1 w-full px-4 py-3 rounded-lg bg-black border border-pink-200/50 text-gray-600 cursor-not-allowed"
                     readOnly
                   />
                 </div>
@@ -304,7 +304,7 @@ const Enquiry = () => {
                   <motion.textarea
                     name="description"
                     value={formData.description}
-                    className="mt-1 w-full px-4 py-3 rounded-lg bg-gray-100/80 border border-pink-200/50 text-gray-600 cursor-not-allowed resize-y"
+                    className="mt-1 w-full px-4 py-3 rounded-lg bg-black border border-pink-200/50 text-gray-600 cursor-not-allowed resize-y"
                     rows={3}
                     readOnly
                   ></motion.textarea>
@@ -316,7 +316,7 @@ const Enquiry = () => {
                     name="name"
                     value={formData.name}
                     onChange={handleInputChange}
-                    className="mt-1 w-full px-4 py-3 rounded-lg bg-white/80 border border-pink-200/50 focus:outline-none focus:ring-2 focus:ring-pink-500 transition-all duration-300"
+                    className="mt-1 w-full px-4 py-3 rounded-lg bg-black border border-pink-200/50 focus:outline-none focus:ring-2 focus:ring-pink-500 transition-all duration-300"
                     placeholder="Your Name"
                     required
                     whileFocus={{ scale: 1.01 }}
@@ -329,7 +329,7 @@ const Enquiry = () => {
                     name="phone_number"
                     value={formData.phone_number}
                     onChange={handleInputChange}
-                    className="mt-1 w-full px-4 py-3 rounded-lg bg-white/80 border border-pink-200/50 focus:outline-none focus:ring-2 focus:ring-pink-500 transition-all duration-300"
+                    className="mt-1 w-full px-4 py-3 rounded-lg bg-black border border-pink-200/50 focus:outline-none focus:ring-2 focus:ring-pink-500 transition-all duration-300"
                     placeholder="Your Phone Number"
                     required
                     whileFocus={{ scale: 1.01 }}
@@ -341,7 +341,7 @@ const Enquiry = () => {
                     name="state"
                     value={formData.state}
                     onChange={handleInputChange}
-                    className="mt-1 w-full px-4 py-3 rounded-lg bg-white/80 border border-pink-200/50 focus:outline-none focus:ring-2 focus:ring-pink-500 transition-all duration-300"
+                    className="mt-1 w-full px-4 py-3 rounded-lg bg-black border border-pink-200/50 focus:outline-none focus:ring-2 focus:ring-pink-500 transition-all duration-300"
                     required
                     whileFocus={{ scale: 1.01 }}
                   >
@@ -359,7 +359,7 @@ const Enquiry = () => {
                     name="city"
                     value={formData.city}
                     onChange={handleInputChange}
-                    className="mt-1 w-full px-4 py-3 rounded-lg bg-white/80 border border-pink-200/50 focus:outline-none focus:ring-2 focus:ring-pink-500 transition-all duration-300"
+                    className="mt-1 w-full px-4 py-3 rounded-lg bg-black border border-pink-200/50 focus:outline-none focus:ring-2 focus:ring-pink-500 transition-all duration-300"
                     required
                     disabled={!formData.state}
                     whileFocus={{ scale: 1.01 }}
@@ -378,7 +378,7 @@ const Enquiry = () => {
                     name="additional_details"
                     value={formData.additional_details}
                     onChange={handleInputChange}
-                    className="mt-1 w-full px-4 py-3 rounded-lg bg-white/80 border border-pink-200/50 focus:outline-none focus:ring-2 focus:ring-pink-500 transition-all duration-300 resize-y"
+                    className="mt-1 w-full px-4 py-3 rounded-lg bg-black border border-pink-200/50 focus:outline-none focus:ring-2 focus:ring-pink-500 transition-all duration-300 resize-y"
                     placeholder="Any specific requirements?"
                     rows={4}
                     whileFocus={{ scale: 1.01 }}
