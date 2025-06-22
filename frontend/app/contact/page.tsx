@@ -125,7 +125,7 @@ const Contact = () => {
             >
               <span>Connect with</span>
               <span className="bg-gradient-to-r from-pink-600 to-rose-500 bg-clip-text text-transparent block">
-                CraftedWithLove
+                CrochetStory
               </span>
             </motion.h1>
             <motion.p
@@ -215,9 +215,9 @@ const Contact = () => {
                 <h3 className="text-xl font-semibold text-gray-900 mb-4">Contact Information</h3>
                 <div className="space-y-4">
                   {[
-                    { icon: Phone, text: "+1 (555) 123-4567" },
-                    { icon: Mail, text: "hello@craftedwithlove.com" },
-                    { icon: MapPin, text: "Your City, State" },
+                    { icon: Phone, text: "+91 7265924325" },
+                    { icon: Mail, text: "crochetstory@gmail.com" },
+                    { icon: MapPin, text: "Ahmedabad, India" },
                   ].map((contact, index) => (
                     <motion.div
                       key={index}

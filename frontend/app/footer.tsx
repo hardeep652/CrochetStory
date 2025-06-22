@@ -18,7 +18,7 @@ export default function Footer() {
           <motion.div className="space-y-4" initial="hidden" animate="visible" variants={itemVariants}>
             <div className="flex items-center space-x-2 group cursor-pointer">
               <Heart className="h-6 w-6 text-pink-500 group-hover:text-pink-400 transition-colors duration-300 group-hover:scale-110" />
-              <span className="text-xl font-bold group-hover:text-pink-100 transition-colors duration-300">CraftedWithLove</span>
+              <span className="text-xl font-bold group-hover:text-pink-100 transition-colors duration-300">CrochetStory</span>
             </div>
             <p className="text-gray-400">
               Handcrafted crochet treasures made with love and care in India.
@@ -104,7 +104,7 @@ export default function Footer() {
           transition={{ delay: 0.8 }}
         >
           <p className="text-gray-400">
-            © 2025 CraftedWithLove. Made with ❤️ for handmade creations. All prices in ₹.
+            © 2025 CrochetStory. Made with ❤️ for handmade creations. All prices in ₹.
           </p>
         </motion.div>
       </div>

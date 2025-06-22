@@ -142,7 +142,7 @@ export default function CrochetHomepage() {
                 <div className="absolute inset-0 bg-pink-500/20 rounded-full blur-md group-hover:blur-lg transition-all duration-300 opacity-0 group-hover:opacity-100"></div>
               </div>
               <span className="text-2xl font-bold bg-gradient-to-r from-pink-600 to-rose-500 bg-clip-text text-transparent group-hover:from-pink-700 group-hover:to-rose-600 transition-all duration-300">
-                CraftedWithLove
+                CrochetStory
               </span>
             </motion.div>
 
@@ -488,7 +488,7 @@ export default function CrochetHomepage() {
             >
               <div className="flex items-center space-x-2 group cursor-pointer">
                 <Heart className="h-6 w-auto text-pink-500 group-hover:text-pink-400 transition-colors duration-300 group-hover:scale-110" />
-                <span className="text-xl font-bold group-hover:text-pink-100 transition-all duration-300">CraftedWithLove</span>
+                <span className="text-xl font-bold group-hover:text-pink-100 transition-all duration-300">CrochetStory</span>
               </div>
               <p className="text-gray-400">
                 Collecting beautiful handmade products with love and expertise.
@@ -537,9 +537,9 @@ export default function CrochetHomepage() {
               <h3 className="font-semibold text-pink-200">Contact Info</h3>
               <div className="space-y-3">
                 {[
-                  { icon: Phone, text: "+1 (555) 123-4567" },
-                  { icon: Mail, text: "hello@craftedwithlove.com" },
-                  { icon: MapPin, text: "Your City, State" },
+                  { icon: Phone, text: "+91 7265924325" },
+                  { icon: Mail, text: "crochetstory@gmail.com" },
+                  { icon: MapPin, text: "Ahmedabad,India" },
                 ].map((contact, index) => (
                   <motion.div
                     key={index}
@@ -562,7 +562,7 @@ export default function CrochetHomepage() {
             transition={{ delay: 0.8 }}
           >
             <p className="text-gray-400">
-              © 2025 CraftedWithLove. Made with ❤️ for handmade creations.
+              © 2025 CrochetStory. Made with ❤️ for handmade creations.
             </p>
           </motion.div>
         </div>

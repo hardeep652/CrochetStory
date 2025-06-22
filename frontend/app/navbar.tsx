@@ -33,7 +33,7 @@ export default function Navbar() {
               <div className="absolute inset-0 bg-pink-500/20 rounded-full blur-md group-hover:blur-lg transition-all duration-300 opacity-0 group-hover:opacity-100"></div>
             </div>
             <span className="text-2xl font-bold bg-gradient-to-r from-pink-600 to-rose-500 bg-clip-text text-transparent group-hover:from-pink-700 group-hover:to-rose-600 transition-all duration-300">
-              CraftedWithLove
+              CrochetStory
             </span>
           </motion.div>
 
