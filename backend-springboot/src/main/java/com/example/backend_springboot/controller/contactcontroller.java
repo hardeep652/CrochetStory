@@ -14,7 +14,7 @@ import com.example.backend_springboot.service.contactservice;
 
 @RestController
 @RequestMapping("/api")
-@CrossOrigin(origins = "http://localhost:3000", allowedHeaders = "*", methods = {RequestMethod.POST, RequestMethod.GET}) // Added CORS
+@CrossOrigin(origins = "https://crochet-story-hiqp-pn2kl8srx-hardeep652s-projects.vercel.app", allowedHeaders = "*", methods = {RequestMethod.POST, RequestMethod.GET}) // Added CORS
 public class contactcontroller {
   
     @Autowired
